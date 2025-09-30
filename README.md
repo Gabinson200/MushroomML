@@ -33,6 +33,7 @@ Data augmentation: random rotation, brightness/contrast jitter, horizontal flips
 Lightweight CNN with depthwise-separable convolutions (MobileNet-mini style)
 Train in Keras/TensorFlow, use cross-entropy loss with label smoothing
 Quantize to INT8 using TensorFlow Lite (QAT if needed)
+I will also test out different model architectures and sizes and use the best performing one.
 
 ### Deployment:
 Load quantized model as C array into ESP-IDF
