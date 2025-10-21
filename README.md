@@ -4,9 +4,9 @@
 This project aims to build a lightweight image classification system that recognizes a small set of common mushroom species from camera images in real time and deploy it on a Seeed Studio XIAO ESP32-S3 board with a connected camera. The system will classify mushrooms into a small number of species and output an “unknown” label when uncertain.
 
 ## Goals
-- G1: Train a compact convolutional neural network (CNN) that classifies at least 5 visually distinct mushroom species with ≥85% top-1 accuracy on a held-out test set.
+- G1: Train a compact convolutional neural network (CNN) that classifies 9 visually distinct mushroom species with ≥85% top-1 accuracy on a held-out test set.
 
-- G2: Quantize and deploy the model to the ESP32-S3 board, on at least 240 x 240 resolution.
+- G2: Quantize and deploy the model to the ESP32-S3 board, on at least 96 x 96 resolution.
 
 - G3: Implement an “unknown” rejection option for out-of-class samples (target ≤10% false positives).
 
@@ -14,18 +14,26 @@ This project aims to build a lightweight image classification system that recogn
 
 ## Data Collection
 
-Public mushroom image datasets such as:
-https://images.cv/dataset/mushroom-image-classification-dataset
+Using dataset:
 https://www.kaggle.com/datasets/maysee/mushrooms-classification-common-genuss-images
 
-Choose 5–8 species or genera that are visually distinct (e.g., Amanita, Boletus, Coprinus, Agaricus, Pleurotus).
+With 9 different species with sizes:
+- Lactarius      1563  
+- Russula        1148  
+- Boletus        1073  
+- Cortinarius     836  
+- Amanita         750  
+- Entoloma        364  
+- Agaricus        353  
+- Hygrocybe       316  
+- Suillus         311  
 
-Cleaning: Remove duplicates, mislabeled or blurry images. Normalize resolution and aspect ratio.
+Cleaning: Normalize resolution and aspect ratio.
 
 ## Modeling Plan
 
 ### Preprocessing & feature extraction:
-Resize to 240 by 240, VGA, SVGA, etc camera supported resolutions.
+Resize to 128 by 128
 Normalize pixel values
 Data augmentation: random rotation, brightness/contrast jitter, horizontal flips, small occlusion/cutout, mild blur/noise
 
