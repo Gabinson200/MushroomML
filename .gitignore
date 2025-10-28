@@ -2,3 +2,7 @@ data/
 __pycache__/
 .ipynb_checkpoints/
 *.pyc
+data/
+__pycache__/
+.ipynb_checkpoints/
+data/
