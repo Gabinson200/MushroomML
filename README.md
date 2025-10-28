@@ -1,5 +1,7 @@
 # MushroomML
 
+# [Midterm Report Video](https://youtu.be/SYshEc5l9hQ)
+
 ## Description
 This project aims to build a lightweight image classification system that recognizes a small set of common mushroom species from camera images in real time and deploy it on a Seeed Studio XIAO ESP32-S3 board with a connected camera. This project builds a compact image classifier for ~9 visually distinct mushroom genera and deploys it to a microcontroller with camera. The device classifies frames in real time and can fall back to an “unknown” label when not confident.
 
