@@ -2,7 +2,7 @@
 
 **[Midterm Report Video](https://youtu.be/SYshEc5l9hQ)**
 
-**[Final Report Video]()**
+**[Final Report Video](https://youtu.be/i-ZzFhrRzN8)**
 
 ## 1. Project Overview
 MushroomML is a lightweight end-to-end image classification system designed to identify 9 distinct mushroom genera in real-time. The project leverages **Collaborative Optimization (Pruning + Clustering + Quantization)** to shrink a Convolutional Neural Network (CNN) small enough to run on the **Seeed Studio XIAO ESP32-S3**.
