@@ -1,6 +1,6 @@
 # MushroomML: TinyML Image Classification for ESP32
 
-**[Midterm Reprot Video](https://youtu.be/SYshEc5l9hQ)**
+**[Midterm Report Video](https://youtu.be/SYshEc5l9hQ)**
 
 **[Final Report Video]()**
 
@@ -87,11 +87,11 @@ Model Size: < 1MB (Fits easily in ESP32-S3 Flash)
 
 While the accuracy metrics are not great they are very much inline with expected accuracies of PCQAT models per tensorflow documentation of similar models:
 
-![TF acc grid](TF_PCQAT_grid.png)
+![TF acc grid](mobile_netv2_50/TF_PCQAT_grid.png)
 
 Confusion Matrix:
 
-![confusion matrix](confusion_matrix.png)
+![confusion matrix](mobile_netv2_50/confusion_matrix.png)
 
 
 ## 8. Testing
