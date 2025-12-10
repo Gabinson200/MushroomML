@@ -59,7 +59,7 @@ Imbalance Handling: The dataset was highly imbalanced (e.g., Lactarius ~1500 ima
 
 ### Preprocessing & Augmentation
 
-Resize: 128x128 pixels.
+Resize: 240x240 pixels.
 Normalization: Pixel values scaled to [-1, 1].
 Augmentation Layers: RandomRotation, RandomFlip, RandomZoom, RandomContrast, and RandomBrightness were applied dynamically during training to prevent overfitting.
 
