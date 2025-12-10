@@ -1,6 +1,6 @@
 # MushroomML: TinyML Image Classification for ESP32
 
-**[Midterm Reprot Video](https://youtu.be/SYshEc5l9hQ)**
+**[Midterm Report Video](https://youtu.be/SYshEc5l9hQ)**
 
 **[Final Report Video]()**
 
