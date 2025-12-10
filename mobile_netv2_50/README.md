@@ -25,7 +25,7 @@ The system is designed to help foragers identify mushrooms or reject unknown sam
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/Gabinson200/MushroomML/tree/final
-    cd MushroomML
+    cd MushroomML/mobile_netv2_50
     ```
 
 2.  **Install Dependencies:**
