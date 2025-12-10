@@ -24,7 +24,7 @@ The system is designed to help foragers identify mushrooms or reject unknown sam
 ### Installation
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/Gabinson200/MushroomML/tree/final
     cd MushroomML
     ```
 
@@ -50,54 +50,51 @@ jupyter notebook mymushroom.ipynb
 make test
 ```
 
-5. Data Pipeline
+## 5. Data Pipeline
 ### Collection & Cleaning
 
-    Source: Kaggle Common Genus Images.
-
-    Classes (9): Agaricus, Amanita, Boletus, Cortinarius, Entoloma, Hygrocybe, Lactarius, Russula, Suillus.
-
-    Imbalance Handling: The dataset was highly imbalanced (e.g., Lactarius ~1500 images vs Hygrocybe ~300). We implemented a Balanced Data Sampler using tf.data.Dataset.sample_from_datasets to ensure the model sees an equal probability of classes during training.
+Source: Kaggle Common Genus Images.
+Classes (9): Agaricus, Amanita, Boletus, Cortinarius, Entoloma, Hygrocybe, Lactarius, Russula, Suillus.
+Imbalance Handling: The dataset was highly imbalanced (e.g., Lactarius ~1500 images vs Hygrocybe ~300). We implemented a Balanced Data Sampler using tf.data.Dataset.sample_from_datasets to ensure the model sees an equal probability of classes during training.
 
 ### Preprocessing & Augmentation
 
-    Resize: 128x128 pixels.
-    Normalization: Pixel values scaled to [-1, 1].
-    Augmentation Layers: RandomRotation, RandomFlip, RandomZoom, RandomContrast, and RandomBrightness were applied dynamically during training to prevent overfitting.
+Resize: 128x128 pixels.
+Normalization: Pixel values scaled to [-1, 1].
+Augmentation Layers: RandomRotation, RandomFlip, RandomZoom, RandomContrast, and RandomBrightness were applied dynamically during training to prevent overfitting.
 
-6. Modeling Strategy
-
+## 6. Modeling Strategy
 We utilized a Transfer Learning approach with MobileNetV2 (Alpha 0.5) as the backbone. The training pipeline followed a strict optimization path for embedded deployment:
 
-    Baseline Training: Fine-tuned MobileNetV2 on the balanced dataset.
+Baseline Training: Fine-tuned MobileNetV2 on the balanced dataset.
 
-    Pruning: Applied tfmot.sparsity to remove 30-50% of unnecessary weights.
+Pruning: Applied tfmot.sparsity to remove 30-50% of unnecessary weights.
 
-    Clustering: Applied tfmot.clustering (16-32 clusters) to group weight values, enhancing compressibility.
+Clustering: Applied tfmot.clustering (16-32 clusters) to group weight values, enhancing compressibility.
 
-    PCQAT (Pruning Clustered Quantization Aware Training): Fine-tuned the model while simulating INT8 quantization effects to preserve accuracy during conversion.
+PCQAT (Pruning Clustered Quantization Aware Training): Fine-tuned the model while simulating INT8 quantization effects to preserve accuracy during conversion.
 
-    TFLite Conversion: Converted to full integer quantization (INT8) using a representative dataset.
+TFLite Conversion: Converted to full integer quantization (INT8) using a representative dataset.
 
-7. Results & Visualizations
+## 7. Results & Visualizations
 Performance Metrics
 
-    Baseline Validation Accuracy: ~66.8%
+Baseline Validation Accuracy: ~66.8%
 
-    Final TFLite (INT8) Test Accuracy: ~69.1%
+Final TFLite (INT8) Test Accuracy: ~69.1%
 
-    Model Size: < 1MB (Fits easily in ESP32-S3 Flash)
+Model Size: < 1MB (Fits easily in ESP32-S3 Flash)
 
 While the accuracy metrics are not great they are very much inline with expected accuracies of PCQAT models per tensorflow documentation of similar models:
 
-![TF acc grid](C:\Users\adamk\Downloads\MushroomML\TF_PCQAT_grid.png)
+![TF acc grid](TF_PCQAT_grid.png)
 
 Confusion Matrix:
 
 ![confusion matrix](confusion_matrix.png)
 
 
-8. Testing
+## 8. Testing
 
 We utilize pytest for unit testing the data pipeline and model architecture.
 
