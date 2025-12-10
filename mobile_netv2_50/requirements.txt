@@ -1,0 +1,9 @@
+tensorflow==2.15.0
+tf_keras==2.15.0
+tensorflow-model-optimization
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+pytest
